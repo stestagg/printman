@@ -24,3 +24,5 @@ Code takes ascii-art board definitions like this:
 ```
 And from that, generates graphics for board outline, and correctly sized pacmans etc.. (gfx.py)
 Also calculated routes and information needed for playing game, and allows games to be started.
+
+Printman uses python-png and a modified version of python-qrcode to generate graphics.
