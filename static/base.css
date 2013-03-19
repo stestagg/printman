@@ -1,0 +1,38 @@
+body{
+	font-family: "Helvetica Neue", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 13px;
+	background: url("/static/bg.png") repeat-y center top #dadada;
+	margin:0;
+	padding:0;
+}
+
+.paper{
+	position: relative;
+	margin-top: 20px;
+	width: 380px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.block{
+	display: block;
+	line-height: 1px;
+}
+
+.logo{
+	position: absolute;
+	background: url("/static/logo.png") no-repeat center center;
+	height: 46px;
+	left: 14px;
+	top: 14px;
+	width: 351px;
+}
+
+.playarea{
+	position: absolute;
+	width: 340px;
+	top: 83px;
+	left: 20px;
+	height: 223px;
+}

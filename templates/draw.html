@@ -1,0 +1,90 @@
+<!doctype html>
+<head>
+	<style>
+		body{
+			margin:0;
+			padding:0;
+		}
+		.paper img{
+			position: absolute;
+		}
+		.logo{
+			position: absolute;
+			background: url("http://{{ host }}/static/logo.png") no-repeat center center;
+			height: 46px;
+			left: {{ cell_size }}px;
+			top: {{ cell_size }}px;
+			width: {{ (cell_size * (layout.WIDTH - 2))}}px;
+		}
+		{% if image %}
+		.image{
+			position: absolute;
+			background: url("http://{{ host }}/static/{{image}}.png") no-repeat center center;
+			height: {{ (layout.HEIGHT - 2) * cell_size }}px;
+			left: {{ xpos(1) }}px;
+			top: {{ ypos(1) }}px;
+			width: {{ (cell_size * (layout.WIDTH - 2))}}px;
+		}
+		{% endif %}
+		.paper{
+			position: relative;
+			padding: 2px;
+			padding-top: 8px;
+			width: 380px;
+			text-align: left;
+			background: white;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.vert a{
+			display: block;
+		}
+		.num{
+			position: absolute;
+		}
+		.num img{
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="paper">
+		<img src="http://{{ host }}/gfx/{{ layout.__name__ }}/board.png" style="left:0; top:0;"/>
+		<div class="logo"></div>
+		{% if image %}
+			<div class="image"></div>
+		{% else %}
+			{% for x, y in board.pills %}
+				<img src="http://{{ host }}/gfx/{{ board.name }}/pill.png"
+					 style="left: {{ xpos(x) }}px;top: {{ ypos(y) }}px"/>
+			{% endfor %}
+			<img src="http://{{ host }}/gfx/{{ board.name }}/pacman.{{ board.dirn_str }}.png" class="placed"
+				 style="left: {{ xpos(board.position[0]) }}px; top: {{ ypos(board.position[1])}}px"/>
+			{% for m in board.monsters.values() %}
+				<img src="http://{{ host }}/gfx/{{ board.name }}/monster.{{ m.dirn_str }}.png" class="placed"
+					 style="left: {{ xpos(m.x) }}px;top: {{ ypos(m.y) }}px"/>
+			{% endfor %}
+			{% endif %}
+			<img src="http://{{ host }}/static/score.png" 
+				 style="left: 30px;top: {{ ypos(layout.HEIGHT + 1) + 5 }}px"/>
+			<div class="num" style="left: 92px; top: {{ ypos(layout.HEIGHT + 1) + 5 }}px">
+				{% for n in str(board.score) -%}<img src="http://{{ host }}/static/bold/{{ n }}.png"/>{%- endfor %}
+			</div>
+			<div class="num" style="left: 83px; top: {{ ypos(layout.HEIGHT + 1) + 24 }}px">
+				{% for n in str(board.turn) -%}<img src="http://{{ host }}/static/bold/{{ n }}.png"/>{%- endfor %}
+			</div>
+			{% if key %}
+			<img src="http://{{ host }}/qr/?access_token={{ key }}" style="left: {{ xpos(layout.WIDTH - 1) - 72 - 2 }}px; top: {{ ypos(layout.HEIGHT) }}px"/>
+			{% endif %}
+	</div>
+	{% if controls %}
+	<div class="after">
+		<a href="/next/?access_token={{ key }}&amp;dirn={{ LEFT }}"><img src="/static/left.png"/></a>
+		<div class="vert" style="display: inline-block;">
+			<a href="/next/?access_token={{ key }}&amp;dirn={{ UP }}"><img src="/static/up.png"/></a>
+			<a href="/next/?access_token={{ key }}&amp;dirn={{ DOWN }}"><img src="/static/down.png"/></a>
+		</div>
+		<a href="/next/?access_token={{ key }}&amp;dirn={{ RIGHT }}"><img src="/static/right.png"/></a>
+	</div>
+	{% endif %}
+</body>

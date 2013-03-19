@@ -1,0 +1,34 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/base.css">
+	<style>	
+		body{
+			margin:0;
+			padding:0;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="paper">
+		<img src="/gfx/MetaBoard/board.png" style="left:0; top:0;"/>
+		<div class="logo"></div>
+		<div class="playarea" style="padding-top: 3px;">
+			
+			<img src="/static/selectgame.png"/>
+			<a class="block" href="/start_game/?game=PracticeBoard&amp;return_url={{ rurl }}{% if key %}&amp;key={{key}}{%endif %}">
+				<img src="/static/practice.png"/>
+			</a>
+			<a class="block" href="/start_game/?game=SmallBoard&amp;return_url={{ rurl }}{% if key %}&amp;key={{key}}{%endif %}">
+				<img src="/static/small.png"/>
+			</a>
+			<a class="block" href="/start_game/?game=MediumBoard&amp;return_url={{ rurl }}{% if key %}&amp;key={{key}}{%endif %}">
+				<img src="/static/medium.png"/>
+			</a>
+			<a class="block" href="/start_game/?game=ClassicBoard&amp;return_url={{ rurl }}{% if key %}&amp;key={{key}}{%endif %}">
+				<img src="/static/classic.png"/>
+			</a>
+		</div>
+		<img src="/static/scanhelp.png" style="position: absolute; left:95px; top:336px;"/>
+	</div>
+</body>

@@ -1,0 +1,41 @@
+<!doctype html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/base.css">
+	<style>	
+		body{
+			margin:0;
+			padding:0;
+		}
+		a{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="paper">
+		<img src="/gfx/MetaBoard/board.png" style="left:0; top:0;"/>
+		<div class="logo"></div>
+		<div class="playarea" style="padding-top: 3px;">
+			<img src="/static/change_dirn.png"/>
+			<a class="block" href="/set_dirn/?key={{ key }}&amp;dirn=up">
+				<img src="/static/up.png"/>
+			</a>
+			<div class="block" style="margin: 2px;">
+			<a class="" href="/set_dirn/?key={{ key }}&amp;dirn=left"><!--
+				--><img src="/static/left.png"/><!--
+			--></a>
+			<a class="" href="/set_dirn/?key={{ key }}&amp;dirn=right"><!--
+				--><img src="/static/right.png"/><!--
+			--></a>
+			</div>
+			<a class="block" href="/set_dirn/?key={{ key }}&amp;dirn=down">
+				<img src="/static/down.png"/>
+			</a>
+		</div>
+		<img src="/static/current_dirn.png" style="position: absolute; left:40px; top:348px;"/>
+		<img src="/gfx/PracticeBoard/pacman.{{ board.dirn_str }}.png" 
+			 style="position: absolute; left:310px; top:344px;"/>
+		<div><a href="https://twitter.com/stestagg">@stestagg</a></div>
+	</div>
+
+</body>

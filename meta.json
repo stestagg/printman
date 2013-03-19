@@ -1,0 +1,12 @@
+{
+    "name": "Print Man",
+    "description": "The world's slowest game of pacman",
+    "delivered_on": "every day",
+    "send_timezone_info": false,
+    "send_delivery_count": false,
+    "external_configuration": true,
+    "publication_api_version": "1.0",
+    "owner_email": "stestagg@gmail.com",
+    "config" : {
+    }
+}
